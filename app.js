@@ -2,14 +2,14 @@ let express = require('express');
 let mongoose = require('mongoose');
 let bodyParser = require('body-parser');
 
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/TodoApp');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/TodoApp');
+
+let app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 const port = process.env.PORT || 300;
-
-let app = express();
 
 app.get('/',(req,res) => {
     res.send('Home page');
