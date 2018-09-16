@@ -1,8 +1,7 @@
 let express = require('express');
 let mongoose = require('mongoose');
+let mongoClient = require('mongodb');
 let bodyParser = require('body-parser');
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/TodoApp');
 
 let app = express();
 
@@ -16,7 +15,16 @@ app.get('/',(req,res) => {
 })
 
 app.get('/api/alphabets',(req,res) => {
-    res.send('im working');
+    mongoClient.connect('mongodb://sengathit.l@gmail.com:Slavanh77@ds137740.mlab.com:37740/lao-alphabets',(err,client) => {
+        if(err) => {
+            res.status(400).send(err);
+        }else{
+            let collection = client.collection('alphabets');
+            collection.find().then(docs => {
+                res.send(docs);
+            });
+        }
+    });
 });
 
 app.listen(port,() => {
