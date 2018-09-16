@@ -15,16 +15,10 @@ app.get('/',(req,res) => {
 })
 
 app.get('/api/alphabets',(req,res) => {
-    mongoClient.connect('mongodb://sengathit.l@gmail.com:Slavanh77@ds137740.mlab.com:37740/lao-alphabets',(err,client) => {
-        if(err){
-            res.status(400).send(err);
-        }else{
-            let collection = client.collection('alphabets');
-            
-            collection.find().then(docs => {
-                res.send(docs);
-            });
-        }
+    mongoClient.connect('mongodb://sengathit.l@gmail.com:Slavanh77@ds137740.mlab.com:37740/lao-alphabets',(err,db) => {
+        db.collection('Alphabets').find().then(doc => {
+            res.send(docs);
+        });
     });
 });
 
