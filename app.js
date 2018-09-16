@@ -16,7 +16,7 @@ app.get('/',(req,res) => {
 
 app.get('/api/alphabets',(req,res) => {
     mongoClient.connect('mongodb://sengathit.l@gmail.com:Slavanh77@ds137740.mlab.com:37740/lao-alphabets',(err,client) => {
-        if(err) => {
+        if(err){
             res.status(400).send(err);
         }else{
             let collection = client.collection('alphabets');
