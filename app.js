@@ -1,6 +1,6 @@
 let express = require('express');
 let mongoose = require('mongoose');
-let mongoClient = require('mongodb');
+let mongoClient = require('mongodb').MongoClient;
 let bodyParser = require('body-parser');
 
 let app = express();
@@ -20,6 +20,7 @@ app.get('/api/alphabets',(req,res) => {
             res.status(400).send(err);
         }else{
             let collection = client.collection('alphabets');
+            
             collection.find().then(docs => {
                 res.send(docs);
             });
