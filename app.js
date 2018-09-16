@@ -2,7 +2,7 @@ let express = require('express');
 let mongoose = require('mongoose');
 let bodyParser = require('body-parser');
 
-mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/TodoApp');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -18,11 +18,6 @@ app.get('/',(req,res) => {
 app.get('/api/alphabets',(req,res) => {
     res.send('im working');
 });
-
-app.post('/api/save',(req,res) => {
-    let firstName;
-    let lastName;
-})
 
 app.listen(port,() => {
     console.log('Server started on port ' + port);
