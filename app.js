@@ -3,7 +3,7 @@ const port = process.env.PORT || 3000;
 
 let app = express();
 
-app.get('/api/alpabets',(req,res) => {
+app.get('/api/alphabets',(req,res) => {
     res.send('im working');
 });
 
