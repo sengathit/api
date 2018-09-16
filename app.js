@@ -8,14 +8,14 @@ let app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-const port = process.env.PORT || 300;
+const port = process.env.PORT || 3000;
 
 app.get('/',(req,res) => {
     res.send('Home page');
 })
 
 app.get('/api/alphabets',(req,res) => {
-    mongoClient.connect('mongodb://sengathit:Slavanh77@ds137740.mlab.com:37740/lao-alphabets',(err,db) => {
+    mongoClient.connect('mongodb://sengathit:Slavanh77@ds137740.mlab.com:37740/lao-alphabets',{ useNewUrlParser: true },(err,db) => {
         if(err){
             res.send(err)
         }else{
