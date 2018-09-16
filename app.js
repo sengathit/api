@@ -15,7 +15,7 @@ app.get('/',(req,res) => {
 })
 
 app.get('/api/alphabets',(req,res) => {
-    mongoClient.connect('mongodb://sengathit.l@gmail.com:Slavanh77@ds137740.mlab.com:37740/lao-alphabets',(err,db) => {
+    mongoClient.connect('mongodb://sengathit:Slavanh77@ds137740.mlab.com:37740/lao-alphabets',(err,db) => {
         if(err){
             res.send(err)
         }else{
