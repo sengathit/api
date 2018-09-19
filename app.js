@@ -2,9 +2,10 @@ let express = require('express');
 let mongoose = require('mongoose');
 let mongoClient = require('mongodb').MongoClient;
 let bodyParser = require('body-parser');
+let cors = require('cors');
 
 let app = express();
-
+app.use(cors())
 const port = process.env.PORT || 3000;
 var db;
 
